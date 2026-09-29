@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Todo{% endblock %}
+
+{% block content %}
+<form class="add-form" action="{{ url_for('edit', todo_id=todo.id) }}" method="post">
+  <input type="text" name="title" value="{{ todo.title }}" maxlength="200" required autofocus>
+  <button type="submit">Save</button>
+</form>
+<p><a href="{{ url_for('index') }}">&larr; Back</a></p>
+{% endblock %}

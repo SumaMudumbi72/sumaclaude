@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment / secrets
+.env
+
+# SQLite database
+*.db
+
+# Flask
+instance/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

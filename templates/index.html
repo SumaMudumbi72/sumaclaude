@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="add-form" action="{{ url_for('add') }}" method="post">
+  <input type="text" name="title" placeholder="What needs to be done?" maxlength="200" required autofocus>
+  <button type="submit">Add</button>
+</form>
+
+<nav class="filters">
+  {% for name in ["all", "active", "completed"] %}
+    <a href="{{ url_for('index', filter=name) }}" class="{{ 'active' if filter == name }}">{{ name|capitalize }}</a>
+  {% endfor %}
+</nav>
+
+{% if todos %}
+<ul class="todo-list">
+  {% for todo in todos %}
+  <li class="todo {{ 'done' if todo.completed }}">
+    <form action="{{ url_for('toggle', todo_id=todo.id) }}" method="post">
+      <input type="checkbox" class="toggle" {{ 'checked' if todo.completed }} aria-label="Toggle complete">
+    </form>
+    <span class="title">{{ todo.title }}</span>
+    <a class="btn-link" href="{{ url_for('edit', todo_id=todo.id) }}">Edit</a>
+    <form action="{{ url_for('delete', todo_id=todo.id) }}" method="post" class="delete-form">
+      <button type="submit" class="btn-delete" aria-label="Delete">&times;</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty">No todos here.</p>
+{% endif %}
+
+<footer class="summary">
+  <span>{{ remaining }} item{{ '' if remaining == 1 else 's' }} left</span>
+  <form action="{{ url_for('clear_completed') }}" method="post">
+    <button type="submit" class="btn-secondary">Clear completed</button>
+  </form>
+</footer>
+{% endblock %}
