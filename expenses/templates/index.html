@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="cards">
+  <div class="card">
+    <span class="label">Balance</span>
+    <span class="value {{ 'negative' if overall.balance < 0 else 'positive' }}">{{ overall.balance|money }}</span>
+  </div>
+  <div class="card">
+    <span class="label">Income</span>
+    <span class="value positive">{{ overall.income|money }}</span>
+  </div>
+  <div class="card">
+    <span class="label">Expenses</span>
+    <span class="value negative">{{ overall.expense|money }}</span>
+  </div>
+</section>
+
+<form class="add-form" action="{{ url_for('add') }}" method="post">
+  <div class="type-toggle">
+    <label><input type="radio" name="type" value="expense" checked> Expense</label>
+    <label><input type="radio" name="type" value="income"> Income</label>
+  </div>
+  <input type="number" name="amount" placeholder="Amount" step="0.01" min="0.01" required>
+  <input type="text" name="category" placeholder="Category" list="category-list" maxlength="50" required>
+  <datalist id="category-list">
+    {% for c in categories %}<option value="{{ c }}">{% endfor %}
+  </datalist>
+  <input type="text" name="description" placeholder="Description (optional)" maxlength="200">
+  <input type="date" name="date" value="{{ today }}" required>
+  <button type="submit">Add</button>
+</form>
+
+<div class="toolbar">
+  <form class="filter-form" action="{{ url_for('index') }}" method="get">
+    <label for="category-filter">Category</label>
+    <select id="category-filter" name="category">
+      <option value="">All categories</option>
+      {% for c in categories %}
+        <option value="{{ c }}" {{ 'selected' if c == category }}>{{ c }}</option>
+      {% endfor %}
+    </select>
+    <noscript><button type="submit">Filter</button></noscript>
+  </form>
+  <a class="btn-secondary" href="{{ url_for('export', category=category or None) }}">Export CSV</a>
+</div>
+
+{% if category %}
+<p class="filter-summary">
+  <strong>{{ category }}</strong>:
+  income {{ filtered.income|money }} · expenses {{ filtered.expense|money }} · net {{ filtered.balance|money }}
+</p>
+{% endif %}
+
+{% if transactions %}
+<div class="table-wrap">
+<table class="tx-table">
+  <thead>
+    <tr><th>Date</th><th>Category</th><th>Description</th><th class="num">Amount</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for tx in transactions %}
+    <tr>
+      <td>{{ tx.date }}</td>
+      <td>{{ tx.category }}</td>
+      <td>{{ tx.description }}</td>
+      <td class="num {{ 'positive' if tx.type == 'income' else 'negative' }}">
+        {{ '+' if tx.type == 'income' else '−' }}{{ tx.amount_cents|money }}
+      </td>
+      <td>
+        <form action="{{ url_for('delete', tx_id=tx.id) }}" method="post" class="delete-form">
+          <button type="submit" class="btn-delete" aria-label="Delete">&times;</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+<p class="empty">No transactions yet.</p>
+{% endif %}
+{% endblock %}
