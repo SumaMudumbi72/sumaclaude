@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ weather.location ~ ' – ' if weather }}Weather</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1><a href="{{ url_for('index') }}">Weather</a></h1>
+
+    <form class="search-form" action="{{ url_for('index') }}" method="get">
+      <input type="text" name="city" value="{{ city }}" placeholder="Enter a city" maxlength="100" required autofocus>
+      <button type="submit">Search</button>
+    </form>
+
+    {% if error %}
+      <div class="flash flash-error">{{ error }}</div>
+    {% endif %}
+
+    {% if weather %}
+    <section class="weather-card">
+      <h2 class="location">{{ weather.location }}</h2>
+      <p class="updated">Updated {{ weather.time }} local time</p>
+
+      <div class="now">
+        <span class="icon" aria-hidden="true">{{ weather.icon }}</span>
+        <div>
+          <div class="temp">{{ weather.temp_c }}°C <span class="temp-f">/ {{ weather.temp_f }}°F</span></div>
+          <div class="description">{{ weather.description }}</div>
+        </div>
+      </div>
+
+      <dl class="details">
+        <div><dt>Humidity</dt><dd>{{ weather.humidity }}%</dd></div>
+        <div><dt>Feels like</dt><dd>{{ weather.feels_c }}°C / {{ weather.feels_f }}°F</dd></div>
+        <div><dt>Wind</dt><dd>{{ weather.wind_kmh }} km/h</dd></div>
+      </dl>
+    </section>
+    {% elif not error %}
+      <p class="empty">Search for a city to see its current weather.</p>
+    {% endif %}
+
+    <footer class="credit">Weather data by <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a></footer>
+  </main>
+</body>
+</html>
