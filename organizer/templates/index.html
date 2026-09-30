@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>File Organizer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1><a href="{{ url_for('index') }}">File Organizer</a></h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <form class="path-form" action="{{ url_for('index') }}" method="get">
+      <label for="path">Folder to organize</label>
+      <div class="row">
+        <input type="text" id="path" name="path" value="{{ raw_path }}" placeholder="~/Downloads" required autofocus spellcheck="false">
+        <button type="submit">Preview</button>
+      </div>
+      <div class="modes">
+        {% for key, label in modes.items() %}
+          <label><input type="radio" name="mode" value="{{ key }}" {{ 'checked' if mode == key }}> {{ label }}</label>
+        {% endfor %}
+      </div>
+    </form>
+
+    {% if plan is not none %}
+      {% if plan %}
+      <section class="preview">
+        <h2>Preview</h2>
+        <p class="hint">
+          {{ plan|length }} file{{ 's' if plan|length != 1 }} in <code>{{ folder }}</code>
+          will be moved into {{ groups|length }} folder{{ 's' if groups|length != 1 }}.
+          Nothing has been moved yet.
+        </p>
+
+        {% for name, files in groups.items() %}
+        <details class="group" {{ 'open' if groups|length <= 4 }}>
+          <summary><span class="folder-name">📁 {{ name }}/</span> <span class="count">{{ files|length }}</span></summary>
+          <ul>{% for f in files %}<li>{{ f }}</li>{% endfor %}</ul>
+        </details>
+        {% endfor %}
+
+        <form action="{{ url_for('organize') }}" method="post" class="confirm">
+          <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+          <input type="hidden" name="path" value="{{ raw_path }}">
+          <input type="hidden" name="mode" value="{{ mode }}">
+          <input type="hidden" name="plan_id" value="{{ plan_id }}">
+          <button type="submit">Move {{ plan|length }} file{{ 's' if plan|length != 1 }}</button>
+        </form>
+      </section>
+      {% else %}
+        <p class="empty">No loose files to organize in <code>{{ folder }}</code>.</p>
+      {% endif %}
+    {% endif %}
+
+    {% if last_run %}
+    <section class="undo">
+      <p>
+        Last run moved {{ last_run.moves|length }} file{{ 's' if last_run.moves|length != 1 }}
+        in <code>{{ last_run.folder }}</code>.
+      </p>
+      <form action="{{ url_for('undo') }}" method="post">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <button type="submit" class="btn-secondary">Undo last run</button>
+      </form>
+    </section>
+    {% endif %}
+
+    <footer class="notes">
+      Only files directly inside the folder are moved. Subfolders, hidden files, and
+      shortcuts are left alone, and files are never overwritten. If a name is already
+      taken, the moved file becomes "name (1).ext".
+    </footer>
+  </main>
+</body>
+</html>
