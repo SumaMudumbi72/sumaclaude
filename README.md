@@ -30,7 +30,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Then open http://127.0.0.1:5000 in your browser.
+Then open http://127.0.0.1:5001 in your browser. (Port 5001 avoids a clash
+with the macOS AirPlay Receiver, which listens on 5000.)
 
 ## Configuration
 
