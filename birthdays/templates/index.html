@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="bday-form" action="{{ url_for('add') }}" method="post">
+  {% include "_form_fields.html" %}
+  <button type="submit">Add birthday</button>
+</form>
+
+<section>
+  <h2>Coming up <span class="sub">next {{ upcoming_days }} days</span></h2>
+  {% if upcoming %}
+  <ul class="upcoming">
+    {% for b in upcoming %}
+    <li class="{{ 'today' if b.days_until == 0 else 'soon' if b.days_until <= 7 }}">
+      <span class="when">{{ b.days_until|when }}</span>
+      <span class="who">
+        <strong>{{ b.name }}</strong>
+        {% if b.turning %}<span class="age">turns {{ b.turning }}</span>{% endif %}
+        {% if b.notes %}<span class="notes">{{ b.notes }}</span>{% endif %}
+      </span>
+      <span class="date">{{ b.next_date|pretty_date }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p class="empty">No birthdays in the next {{ upcoming_days }} days.</p>
+  {% endif %}
+</section>
+
+<section>
+  <h2>All birthdays <span class="sub">{{ birthdays|length }}</span></h2>
+  {% if birthdays %}
+  <div class="table-wrap">
+  <table class="all">
+    <thead><tr><th>Name</th><th>Birthday</th><th>Next</th><th></th></tr></thead>
+    <tbody>
+      {% for b in birthdays %}
+      <tr>
+        <td>
+          {{ b.name }}
+          {% if b.notes %}<div class="notes">{{ b.notes }}</div>{% endif %}
+        </td>
+        <td>{{ months[b.month - 1] }} {{ b.day|ordinal }}{% if b.year %}, {{ b.year }}{% endif %}</td>
+        <td class="next">{{ b.days_until|when }}{% if b.turning %} · turns {{ b.turning }}{% endif %}</td>
+        <td class="actions">
+          <a href="{{ url_for('edit', birthday_id=b.id) }}">Edit</a>
+          <form action="{{ url_for('delete', birthday_id=b.id) }}" method="post" class="delete-form" data-name="{{ b.name }}">
+            <button type="submit" class="btn-delete" aria-label="Delete {{ b.name }}">&times;</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+    <p class="empty">No birthdays yet. Add one above.</p>
+  {% endif %}
+</section>
+
+<section class="email-box">
+  <h2>Email reminders <span class="sub">optional</span></h2>
+  {% if email.configured %}
+    <p>
+      Reminders go to <strong>{{ email.to }}</strong>
+      {% for d in email.lead_days %}{{ 'on the day' if d == 0 else '1 day before' if d == 1 else d ~ ' days before' }}{{ ', ' if not loop.last }}{% endfor %}.
+      Schedule <code>flask --app app send-reminders</code> to run daily, or send today's now:
+    </p>
+    <form action="{{ url_for('send_reminders_now') }}" method="post">
+      <button type="submit" class="btn-secondary">Send today's reminders now</button>
+    </form>
+  {% else %}
+    <p>Email isn't set up. To get reminders by email, set the SMTP settings described in the README, then restart the app.</p>
+  {% endif %}
+</section>
+{% endblock %}

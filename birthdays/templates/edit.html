@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{ birthday.name }}{% endblock %}
+
+{% block content %}
+<h2>Edit {{ birthday.name }}</h2>
+<form class="bday-form" action="{{ url_for('edit', birthday_id=birthday.id) }}" method="post">
+  {% include "_form_fields.html" %}
+  <button type="submit">Save</button>
+</form>
+<p><a href="{{ url_for('index') }}">&larr; Back</a></p>
+{% endblock %}

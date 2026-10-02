@@ -1,0 +1,10 @@
+<input type="text" name="name" value="{{ form.name or '' }}" placeholder="Name" maxlength="100" required class="f-name">
+<select name="month" required class="f-month" aria-label="Month">
+  <option value="">Month</option>
+  {% for m in months %}
+    <option value="{{ loop.index }}" {{ 'selected' if form.month|string == loop.index|string }}>{{ m }}</option>
+  {% endfor %}
+</select>
+<input type="number" name="day" value="{{ form.day or '' }}" placeholder="Day" min="1" max="31" required class="f-day" aria-label="Day">
+<input type="number" name="year" value="{{ form.year or '' }}" placeholder="Year (optional)" min="1900" class="f-year" aria-label="Birth year (optional)">
+<input type="text" name="notes" value="{{ form.notes or '' }}" placeholder="Notes (optional), e.g. likes books" maxlength="200" class="f-notes">
