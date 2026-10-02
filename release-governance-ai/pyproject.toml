@@ -1,0 +1,10 @@
+[project]
+name = "release-governance-ai"
+version = "0.1.0"
+description = "AI Release Governance Assistant - Phase 1: data loading and validation"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+# Lets tests import the `src` package without installing the project.
+pythonpath = ["."]
+testpaths = ["tests"]

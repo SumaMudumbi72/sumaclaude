@@ -1,0 +1,19 @@
+# Scoring weights for the future release-readiness score.
+#
+# Each weight is the share of the final score (0-100) that signal
+# contributes. The weights must add up to 1.0.
+
+version: "1.0"
+
+weights:
+  defects: 0.30
+  testing: 0.25
+  pipeline: 0.15
+  approvals: 0.15
+  freeze: 0.05
+  history: 0.10
+
+# Score cut-offs for the release decision.
+thresholds:
+  go: 80.0              # Score >= 80: ready to release
+  conditional_go: 60.0  # 60 <= score < 80: release with conditions; below 60: no-go

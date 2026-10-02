@@ -1,0 +1,168 @@
+[
+  {
+    "defect_id": "DEF-1041",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "title": "Customer charged twice when 3-D Secure callback is retried after timeout",
+    "severity": "CRITICAL",
+    "status": "OPEN",
+    "created_at": "2026-09-24T14:12:00Z",
+    "assignee": "Wei Chen",
+    "is_blocking": true
+  },
+  {
+    "defect_id": "DEF-1047",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-IAM",
+    "title": "Refresh tokens remain valid after password reset",
+    "severity": "CRITICAL",
+    "status": "IN_PROGRESS",
+    "created_at": "2026-09-27T09:40:00Z",
+    "assignee": "Fatima Al-Sayed",
+    "is_blocking": true
+  },
+  {
+    "defect_id": "DEF-1033",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "title": "Account dashboard exposes masked card number in page source",
+    "severity": "CRITICAL",
+    "status": "CLOSED",
+    "created_at": "2026-09-15T11:05:00Z",
+    "resolved_at": "2026-09-17T16:30:00Z",
+    "assignee": "Jonas Becker",
+    "is_blocking": true
+  },
+  {
+    "defect_id": "DEF-1038",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "title": "Checkout fails on Safari 17 when a saved card is selected",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "created_at": "2026-09-22T08:55:00Z",
+    "assignee": "Jonas Becker"
+  },
+  {
+    "defect_id": "DEF-1044",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-REPORTING",
+    "title": "Monthly statement export times out for accounts with over 50,000 transactions",
+    "severity": "HIGH",
+    "status": "IN_PROGRESS",
+    "created_at": "2026-09-25T13:20:00Z",
+    "assignee": "Arjun Mehta"
+  },
+  {
+    "defect_id": "DEF-1049",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-NOTIFY",
+    "title": "SMS retry job ignores customer opt-out flag",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "created_at": "2026-09-28T10:02:00Z",
+    "assignee": "Sofia Rossi"
+  },
+  {
+    "defect_id": "DEF-1052",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "title": "Refund webhook payload is missing the idempotency key",
+    "severity": "HIGH",
+    "status": "REOPENED",
+    "created_at": "2026-09-29T15:47:00Z",
+    "assignee": "Wei Chen"
+  },
+  {
+    "defect_id": "DEF-1029",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-IAM",
+    "title": "Password reset email link expires after 5 minutes instead of 30",
+    "severity": "HIGH",
+    "status": "CLOSED",
+    "created_at": "2026-09-10T09:15:00Z",
+    "resolved_at": "2026-09-12T12:00:00Z",
+    "assignee": "Fatima Al-Sayed"
+  },
+  {
+    "defect_id": "DEF-1035",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "title": "Partial refunds rounded incorrectly for JPY transactions",
+    "severity": "HIGH",
+    "status": "RESOLVED",
+    "created_at": "2026-09-18T07:30:00Z",
+    "resolved_at": "2026-09-23T18:10:00Z",
+    "assignee": "Wei Chen"
+  },
+  {
+    "defect_id": "DEF-1040",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-REPORTING",
+    "title": "CSV statement export uses US date format for UK customers",
+    "severity": "HIGH",
+    "status": "DEFERRED",
+    "created_at": "2026-09-23T16:00:00Z",
+    "assignee": "Arjun Mehta"
+  },
+  {
+    "defect_id": "DEF-1036",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "title": "Preference center toggles do not announce state to screen readers",
+    "severity": "MEDIUM",
+    "status": "IN_PROGRESS",
+    "created_at": "2026-09-19T12:25:00Z",
+    "assignee": "Hannah Kim"
+  },
+  {
+    "defect_id": "DEF-1042",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-NOTIFY",
+    "title": "Email template renders broken image in Outlook dark mode",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "created_at": "2026-09-24T17:18:00Z"
+  },
+  {
+    "defect_id": "DEF-1031",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "title": "3-D Secure challenge window not centered on small screens",
+    "severity": "MEDIUM",
+    "status": "RESOLVED",
+    "created_at": "2026-09-12T10:40:00Z",
+    "resolved_at": "2026-09-16T09:05:00Z",
+    "assignee": "Hannah Kim"
+  },
+  {
+    "defect_id": "DEF-1045",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-IAM",
+    "title": "Audit log entries for token revocation lack the client IP",
+    "severity": "MEDIUM",
+    "status": "OPEN",
+    "created_at": "2026-09-26T11:11:00Z",
+    "assignee": "Fatima Al-Sayed"
+  },
+  {
+    "defect_id": "DEF-1039",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "title": "Typo in saved-card removal confirmation dialog",
+    "severity": "LOW",
+    "status": "CLOSED",
+    "created_at": "2026-09-22T14:00:00Z",
+    "resolved_at": "2026-09-22T15:30:00Z",
+    "assignee": "Jonas Becker"
+  },
+  {
+    "defect_id": "DEF-1050",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-REPORTING",
+    "title": "API docs list deprecated pagination parameter",
+    "severity": "LOW",
+    "status": "OPEN",
+    "created_at": "2026-09-29T09:00:00Z"
+  }
+]

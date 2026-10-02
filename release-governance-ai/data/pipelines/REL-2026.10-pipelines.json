@@ -1,0 +1,116 @@
+[
+  {
+    "pipeline_id": "PL-PORTAL-1187",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "name": "customer-portal-release",
+    "status": "SUCCESS",
+    "build_number": 1187,
+    "branch": "release/2026.10",
+    "commit_sha": "8f3c2a91d4e7b6052c1f9a8e3d7b4c6a1e2f0d93",
+    "started_at": "2026-09-30T18:02:11Z",
+    "finished_at": "2026-09-30T18:41:37Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 312},
+      {"name": "unit-tests", "status": "SUCCESS", "duration_seconds": 684},
+      {"name": "sast-scan", "status": "SUCCESS", "duration_seconds": 401},
+      {"name": "package", "status": "SUCCESS", "duration_seconds": 96},
+      {"name": "deploy-staging", "status": "SUCCESS", "duration_seconds": 873}
+    ]
+  },
+  {
+    "pipeline_id": "PL-PAYMENTS-412",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "name": "payments-service-release",
+    "status": "FAILED",
+    "build_number": 412,
+    "branch": "release/2026.10",
+    "commit_sha": "1b7e4d20c9a35f8e6d2b0a417c93e5f8d6a2b1c4",
+    "started_at": "2026-09-29T21:15:00Z",
+    "finished_at": "2026-09-29T21:33:48Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 245},
+      {"name": "unit-tests", "status": "FAILED", "duration_seconds": 883},
+      {"name": "sast-scan", "status": "CANCELLED", "duration_seconds": 0},
+      {"name": "package", "status": "CANCELLED", "duration_seconds": 0},
+      {"name": "deploy-staging", "status": "CANCELLED", "duration_seconds": 0}
+    ]
+  },
+  {
+    "pipeline_id": "PL-PAYMENTS-415",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "name": "payments-service-release",
+    "status": "SUCCESS",
+    "build_number": 415,
+    "branch": "release/2026.10",
+    "commit_sha": "c4d9e1f7a2b8360e5d4c7b9a1f3e2d8c6b0a5f17",
+    "started_at": "2026-10-01T09:30:42Z",
+    "finished_at": "2026-10-01T10:22:05Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 251},
+      {"name": "unit-tests", "status": "SUCCESS", "duration_seconds": 902},
+      {"name": "sast-scan", "status": "SUCCESS", "duration_seconds": 538},
+      {"name": "package", "status": "SUCCESS", "duration_seconds": 104},
+      {"name": "deploy-staging", "status": "SUCCESS", "duration_seconds": 1288}
+    ]
+  },
+  {
+    "pipeline_id": "PL-IAM-903",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-IAM",
+    "name": "iam-service-release",
+    "status": "SUCCESS",
+    "build_number": 903,
+    "branch": "release/2026.10",
+    "commit_sha": "5e2a8c7f",
+    "started_at": "2026-09-30T13:05:00Z",
+    "finished_at": "2026-09-30T13:39:12Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 188},
+      {"name": "unit-tests", "status": "SUCCESS", "duration_seconds": 540},
+      {"name": "sast-scan", "status": "SUCCESS", "duration_seconds": 467},
+      {"name": "dependency-audit", "status": "SUCCESS", "duration_seconds": 122},
+      {"name": "deploy-staging", "status": "SUCCESS", "duration_seconds": 735}
+    ]
+  },
+  {
+    "pipeline_id": "PL-NOTIFY-2264",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-NOTIFY",
+    "name": "notification-service-release",
+    "status": "SUCCESS",
+    "build_number": 2264,
+    "branch": "release/2026.10",
+    "commit_sha": "a91f0c3e6b7d2845",
+    "started_at": "2026-09-30T16:20:30Z",
+    "finished_at": "2026-09-30T16:44:02Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 141},
+      {"name": "unit-tests", "status": "SUCCESS", "duration_seconds": 376},
+      {"name": "contract-tests", "status": "SUCCESS", "duration_seconds": 298},
+      {"name": "package", "status": "SUCCESS", "duration_seconds": 77},
+      {"name": "deploy-staging", "status": "SUCCESS", "duration_seconds": 520}
+    ]
+  },
+  {
+    "pipeline_id": "PL-REPORTING-571",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-REPORTING",
+    "name": "reporting-api-release",
+    "status": "SUCCESS",
+    "build_number": 571,
+    "branch": "release/2026.10",
+    "commit_sha": "e07b3d9a4c1f",
+    "started_at": "2026-09-30T19:48:00Z",
+    "finished_at": "2026-09-30T20:16:51Z",
+    "stages": [
+      {"name": "build", "status": "SUCCESS", "duration_seconds": 205},
+      {"name": "unit-tests", "status": "SUCCESS", "duration_seconds": 612},
+      {"name": "sast-scan", "status": "SUCCESS", "duration_seconds": 344},
+      {"name": "package", "status": "SUCCESS", "duration_seconds": 88},
+      {"name": "deploy-staging", "status": "SUCCESS", "duration_seconds": 482}
+    ]
+  }
+]

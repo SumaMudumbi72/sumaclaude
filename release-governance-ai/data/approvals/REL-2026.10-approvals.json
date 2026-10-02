@@ -1,0 +1,40 @@
+[
+  {
+    "approval_id": "APR-2026-1001",
+    "release_id": "REL-2026.10",
+    "role": "QA_LEAD",
+    "approver": "Priya Raman",
+    "status": "APPROVED",
+    "requested_at": "2026-09-30T09:00:00Z",
+    "decided_at": "2026-10-01T15:20:00Z",
+    "comments": "Regression complete. Remaining failures are tracked as defects."
+  },
+  {
+    "approval_id": "APR-2026-1002",
+    "release_id": "REL-2026.10",
+    "role": "SECURITY",
+    "approver": "Marcus Lee",
+    "status": "APPROVED",
+    "requested_at": "2026-09-30T09:00:00Z",
+    "decided_at": "2026-10-01T17:45:00Z",
+    "comments": "SAST and dependency scans clean. Approval assumes DEF-1047 is fixed before release."
+  },
+  {
+    "approval_id": "APR-2026-1003",
+    "release_id": "REL-2026.10",
+    "role": "PRODUCT_OWNER",
+    "approver": "Elena Garcia",
+    "status": "APPROVED",
+    "requested_at": "2026-09-30T09:00:00Z",
+    "decided_at": "2026-10-01T11:05:00Z"
+  },
+  {
+    "approval_id": "APR-2026-1004",
+    "release_id": "REL-2026.10",
+    "role": "CHANGE_ADVISORY_BOARD",
+    "approver": "Change Advisory Board",
+    "status": "PENDING",
+    "requested_at": "2026-09-30T09:00:00Z",
+    "comments": "Scheduled for the CAB meeting on 2026-10-13."
+  }
+]

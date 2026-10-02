@@ -1,0 +1,32 @@
+[
+  {
+    "freeze_id": "FRZ-2026-Q3-CLOSE",
+    "name": "Q3 Financial Close",
+    "start": "2026-09-28T00:00:00Z",
+    "end": "2026-10-05T23:59:59Z",
+    "freeze_type": "HARD",
+    "environments": ["PRODUCTION"],
+    "reason": "Quarter-end financial reporting; no changes to payment or reporting systems.",
+    "exception_contact": "finance-change-control@example.com"
+  },
+  {
+    "freeze_id": "FRZ-2026-NET-MAINT",
+    "name": "Data Center Network Maintenance",
+    "start": "2026-10-24T00:00:00Z",
+    "end": "2026-10-25T12:00:00Z",
+    "freeze_type": "SOFT",
+    "environments": ["PRODUCTION", "STAGING"],
+    "reason": "Core switch replacement in the primary data center.",
+    "exception_contact": "network-ops@example.com"
+  },
+  {
+    "freeze_id": "FRZ-2026-HOLIDAY",
+    "name": "Holiday Peak Freeze",
+    "start": "2026-11-20T00:00:00Z",
+    "end": "2027-01-04T23:59:59Z",
+    "freeze_type": "HARD",
+    "environments": ["PRODUCTION"],
+    "reason": "Peak shopping season, from Black Friday through New Year.",
+    "exception_contact": "cab-chair@example.com"
+  }
+]

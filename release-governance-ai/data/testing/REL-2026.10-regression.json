@@ -1,0 +1,83 @@
+[
+  {
+    "suite_id": "RS-PORTAL-E2E-0930",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "suite_name": "Customer Portal end-to-end (Playwright)",
+    "total_tests": 412,
+    "passed": 401,
+    "failed": 6,
+    "skipped": 5,
+    "blocked": 0,
+    "coverage_percent": 93.5,
+    "environment": "STAGING",
+    "executed_at": "2026-10-01T02:15:00Z"
+  },
+  {
+    "suite_id": "RS-PAYMENTS-API-1001",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PAYMENTS",
+    "suite_name": "Payments API regression",
+    "total_tests": 638,
+    "passed": 629,
+    "failed": 3,
+    "skipped": 4,
+    "blocked": 2,
+    "coverage_percent": 96.0,
+    "environment": "STAGING",
+    "executed_at": "2026-10-01T12:40:00Z"
+  },
+  {
+    "suite_id": "RS-IAM-SEC-0930",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-IAM",
+    "suite_name": "Identity security regression",
+    "total_tests": 214,
+    "passed": 210,
+    "failed": 2,
+    "skipped": 2,
+    "blocked": 0,
+    "coverage_percent": 95.0,
+    "environment": "STAGING",
+    "executed_at": "2026-09-30T22:05:00Z"
+  },
+  {
+    "suite_id": "RS-NOTIFY-CONTRACT-0930",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-NOTIFY",
+    "suite_name": "Notification contract and delivery tests",
+    "total_tests": 156,
+    "passed": 152,
+    "failed": 1,
+    "skipped": 3,
+    "blocked": 0,
+    "coverage_percent": 91.0,
+    "environment": "QA",
+    "executed_at": "2026-09-30T18:30:00Z"
+  },
+  {
+    "suite_id": "RS-REPORTING-DATA-0930",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-REPORTING",
+    "suite_name": "Statement export data validation",
+    "total_tests": 98,
+    "passed": 93,
+    "failed": 2,
+    "skipped": 3,
+    "blocked": 0,
+    "coverage_percent": 88.0,
+    "environment": "QA",
+    "executed_at": "2026-09-30T21:10:00Z"
+  },
+  {
+    "suite_id": "RS-SMOKE-XAPP-1001",
+    "release_id": "REL-2026.10",
+    "application_id": "APP-PORTAL",
+    "suite_name": "Cross-application smoke tests",
+    "total_tests": 45,
+    "passed": 45,
+    "coverage_percent": 100.0,
+    "environment": "STAGING",
+    "executed_at": "2026-10-01T13:05:00Z"
+  }
+]

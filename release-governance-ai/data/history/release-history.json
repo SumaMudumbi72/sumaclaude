@@ -1,0 +1,327 @@
+[
+  {
+    "release_id": "REL-2025.04",
+    "version": "2025.4.0",
+    "released_at": "2025-04-15T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 3,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 48,
+    "change_ticket": "CHG-0041102"
+  },
+  {
+    "release_id": "REL-2025.05",
+    "version": "2025.5.0",
+    "released_at": "2025-05-20T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-NOTIFY"
+    ],
+    "post_release_defects": 5,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 52,
+    "change_ticket": "CHG-0041577"
+  },
+  {
+    "release_id": "REL-2025.06",
+    "version": "2025.6.0",
+    "released_at": "2025-06-17T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-IAM",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 2,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 45,
+    "change_ticket": "CHG-0042013"
+  },
+  {
+    "release_id": "REL-2025.07",
+    "version": "2025.7.0",
+    "released_at": "2025-07-15T02:00:00Z",
+    "outcome": "ROLLED_BACK",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 9,
+    "critical_post_release_defects": 2,
+    "rollback_performed": true,
+    "downtime_minutes": 38,
+    "deployment_duration_minutes": 95,
+    "change_ticket": "CHG-0042490"
+  },
+  {
+    "release_id": "REL-2025.08",
+    "version": "2025.8.0",
+    "released_at": "2025-08-19T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 4,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 50,
+    "change_ticket": "CHG-0042958"
+  },
+  {
+    "release_id": "REL-2025.09",
+    "version": "2025.9.0",
+    "released_at": "2025-09-16T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY"
+    ],
+    "post_release_defects": 3,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 47,
+    "change_ticket": "CHG-0043391"
+  },
+  {
+    "release_id": "REL-2025.10",
+    "version": "2025.10.0",
+    "released_at": "2025-10-21T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 6,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 5,
+    "deployment_duration_minutes": 58,
+    "change_ticket": "CHG-0043864"
+  },
+  {
+    "release_id": "REL-2025.11",
+    "version": "2025.11.0",
+    "released_at": "2025-11-18T02:00:00Z",
+    "outcome": "HOTFIX_REQUIRED",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 7,
+    "critical_post_release_defects": 1,
+    "rollback_performed": false,
+    "downtime_minutes": 12,
+    "deployment_duration_minutes": 61,
+    "change_ticket": "CHG-0044302"
+  },
+  {
+    "release_id": "REL-2026.01",
+    "version": "2026.1.0",
+    "released_at": "2026-01-20T02:00:00Z",
+    "outcome": "HOTFIX_REQUIRED",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 8,
+    "critical_post_release_defects": 1,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 66,
+    "change_ticket": "CHG-0044918"
+  },
+  {
+    "release_id": "REL-2026.02",
+    "version": "2026.2.0",
+    "released_at": "2026-02-17T02:00:00Z",
+    "outcome": "ROLLED_BACK",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 11,
+    "critical_post_release_defects": 3,
+    "rollback_performed": true,
+    "downtime_minutes": 54,
+    "deployment_duration_minutes": 110,
+    "change_ticket": "CHG-0045376"
+  },
+  {
+    "release_id": "REL-2026.02.1",
+    "version": "2026.2.1",
+    "released_at": "2026-02-24T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PAYMENTS",
+      "APP-IAM"
+    ],
+    "post_release_defects": 1,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 22,
+    "change_ticket": "CHG-0045455"
+  },
+  {
+    "release_id": "REL-2026.03",
+    "version": "2026.3.0",
+    "released_at": "2026-03-17T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 4,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 49,
+    "change_ticket": "CHG-0045890"
+  },
+  {
+    "release_id": "REL-2026.04",
+    "version": "2026.4.0",
+    "released_at": "2026-04-21T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 3,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 44,
+    "change_ticket": "CHG-0046347"
+  },
+  {
+    "release_id": "REL-2026.05",
+    "version": "2026.5.0",
+    "released_at": "2026-05-19T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 2,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 41,
+    "change_ticket": "CHG-0046781"
+  },
+  {
+    "release_id": "REL-2026.06",
+    "version": "2026.6.0",
+    "released_at": "2026-06-16T02:00:00Z",
+    "outcome": "HOTFIX_REQUIRED",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 6,
+    "critical_post_release_defects": 1,
+    "rollback_performed": false,
+    "downtime_minutes": 8,
+    "deployment_duration_minutes": 57,
+    "change_ticket": "CHG-0047220"
+  },
+  {
+    "release_id": "REL-2026.07",
+    "version": "2026.7.0",
+    "released_at": "2026-07-21T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM"
+    ],
+    "post_release_defects": 3,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 43,
+    "change_ticket": "CHG-0047692"
+  },
+  {
+    "release_id": "REL-2026.08",
+    "version": "2026.8.0",
+    "released_at": "2026-08-18T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-IAM",
+      "APP-NOTIFY",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 2,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 39,
+    "change_ticket": "CHG-0048105"
+  },
+  {
+    "release_id": "REL-2026.09",
+    "version": "2026.9.0",
+    "released_at": "2026-09-15T02:00:00Z",
+    "outcome": "SUCCESS",
+    "application_ids": [
+      "APP-PORTAL",
+      "APP-PAYMENTS",
+      "APP-REPORTING"
+    ],
+    "post_release_defects": 1,
+    "critical_post_release_defects": 0,
+    "rollback_performed": false,
+    "downtime_minutes": 0,
+    "deployment_duration_minutes": 36,
+    "change_ticket": "CHG-0048019"
+  }
+]
