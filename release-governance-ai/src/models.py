@@ -444,12 +444,44 @@ class HistoryRules(ConfigModel):
     max_rollback_rate: float = Field(default=0.10, ge=0, le=1)
 
 
+class GovernanceRuleConfig(ConfigModel):
+    """One configurable governance rule used by Phase 2."""
+
+    name: str = Field(min_length=1)
+    field: str | None = None
+    operator: str = "gt"
+    value: str | int | float | bool | None = None
+    description: str | None = None
+    recommendation: str = ""
+    outcome: str = "BLOCK"
+    warning: bool = False
+    mandatory: bool = True
+
+
+class GovernanceRulesConfig(ConfigModel):
+    """Container for governance rule definitions."""
+
+    rules: list[GovernanceRuleConfig] = Field(default_factory=list)
+
+
 class RulesConfig(ConfigModel):
     """Contents of ``config/rules.yaml``."""
 
     version: str = "1.0"
     readiness: ReadinessRules = Field(default_factory=ReadinessRules)
     history: HistoryRules = Field(default_factory=HistoryRules)
+    governance: GovernanceRulesConfig | None = None
+    rules: list[GovernanceRuleConfig] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _normalize_governance_rules(cls, values: object) -> object:
+        """Support the legacy readiness format and the new governance rule list."""
+        if not isinstance(values, dict):
+            return values
+        if "governance" not in values and "rules" in values and isinstance(values["rules"], list):
+            values["governance"] = {"rules": values["rules"]}
+        return values
 
 
 class ScoringWeights(ConfigModel):

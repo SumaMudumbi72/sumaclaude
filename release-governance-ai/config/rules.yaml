@@ -1,9 +1,9 @@
 # Release readiness rules.
 #
-# Phase 1 loads and validates these values. Later phases will evaluate each
-# release against them.
+# The project keeps the original Phase 1 thresholds for validation, while the
+# Phase 2 governance engine reads a deterministic list of business rules below.
 
-version: "1.0"
+version: "2.0"
 
 readiness:
   # Unresolved defects allowed at release time (OPEN, IN_PROGRESS, REOPENED).
@@ -32,3 +32,46 @@ history:
   lookback_releases: 12
   # Maximum acceptable share of releases rolled back (0.0 to 1.0).
   max_rollback_rate: 0.10
+
+governance:
+  rules:
+    - name: Critical Defects
+      field: open_critical_defects
+      operator: gt
+      value: 0
+      outcome: BLOCK
+      recommendation: Close critical defects
+      description: Block release if critical defects remain open
+
+    - name: Regression Coverage
+      field: regression_coverage
+      operator: lt
+      value: 90
+      outcome: BLOCK
+      recommendation: Improve regression coverage
+      description: Block release if regression coverage falls below the policy threshold
+
+    - name: Security Approval
+      field: security_approval_pending
+      operator: eq
+      value: true
+      outcome: ESCALATE
+      recommendation: Obtain security approval
+      description: Escalate when security approval is still pending
+
+    - name: Production Freeze
+      field: freeze_active
+      operator: eq
+      value: true
+      outcome: ESCALATE
+      recommendation: Confirm freeze status before release
+      description: Escalate when production freeze is active
+
+    - name: High Defects
+      field: open_high_defects
+      operator: gt
+      value: 5
+      outcome: CONDITIONAL APPROVAL
+      warning: true
+      recommendation: Reduce high-severity defects before release
+      description: Conditional approval when too many high defects remain

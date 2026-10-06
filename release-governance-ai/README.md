@@ -107,6 +107,64 @@ flowchart LR
   fields are ignored, so richer exports from source systems still load, but
   unknown keys in configuration are rejected so typos are caught.
 
+## Phase 2: Rule Engine architecture
+
+Phase 2 adds a deterministic governance rule engine. It does not attempt AI
+reasoning; it evaluates only explicit business rules stored in configuration.
+
+```mermaid
+flowchart LR
+    CFG[config/rules.yaml] --> RL[RuleLoader]
+    RL --> RD[RuleDefinition]
+    RD --> RE[RuleEvaluator]
+    RE --> RES[RuleResult]
+    RES --> SG[RuleSummaryGenerator]
+    SG --> CONSOLE[console report]
+    DATA[ReleaseSummary metrics] --> RE
+```
+
+The Phase 2 components are:
+
+| Module | Responsibility |
+|--------|----------------|
+| `src/rule_models.py` | Typed rule definitions and decision enums. |
+| `src/rule_result.py` | Per-rule result objects and the human-readable console report. |
+| `src/rule_engine.py` | Loads rules from YAML, evaluates them against metrics, and returns a final governance decision. |
+
+### How rules work
+
+A rule is defined by a metric name, a comparison operator, and a threshold. The
+rule engine reads a metrics dictionary such as the release summary values and
+evaluates each rule. Example:
+
+```yaml
+governance:
+  rules:
+    - name: Critical Defects
+      field: open_critical_defects
+      operator: gt
+      value: 0
+      outcome: BLOCK
+      recommendation: Close critical defects
+```
+
+The engine matches the configured field against the configured comparison, then
+returns a `PASS`, `FAIL`, or `WARNING` status. The overall recommendation is one
+of `PROCEED`, `CONDITIONAL APPROVAL`, `BLOCK`, or `ESCALATE`.
+
+### Adding new governance rules
+
+To extend the governance policy:
+
+1. Add a new item to `config/rules.yaml` under `governance.rules`.
+2. Give it a unique `name` and the `field` that the release summary exposes.
+3. Choose a comparison such as `gt`, `lt`, `gte`, `lte`, `eq`, or `ne`.
+4. Set `outcome` to one of `BLOCK`, `ESCALATE`, or `CONDITIONAL APPROVAL`.
+5. Add a clear `recommendation` explaining the remediation.
+
+The engine reads the YAML at runtime, so thresholds stay configurable and are
+never hardcoded in Python.
+
 ### Exceptions
 
 | Exception               | Raised when                                          |
